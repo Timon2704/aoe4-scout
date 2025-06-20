@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import { TeamPlayer, Mode } from '../types';
+import { CIVILIZATION_NAMES } from '../utils/constants';
 import CivFlag from './CivFlag';
 import { FaUser, FaTwitch, FaYoutube, FaTwitter } from 'react-icons/fa';
 import ReactCountryFlag from 'react-country-flag';
@@ -91,6 +92,7 @@ export function PlayerCard({ player, gameMode, isOpponent }: PlayerCardProps) {
   const soloMode = playerDetails?.modes?.rm_solo;
   const soloMmrMode = playerDetails?.modes?.rm_1v1_elo;
   const isTeamGame = gameMode.includes('team') || ['2v2', '3v3', '4v4'].some(v => gameMode.includes(v));
+  const civilizationName = CIVILIZATION_NAMES[player.civilization] || player.civilization;
 
   const cardContent = (
     <div className={clsx(
@@ -109,7 +111,7 @@ export function PlayerCard({ player, gameMode, isOpponent }: PlayerCardProps) {
           <div className="flex-1 min-w-0">
             <p className="font-bold text-lg truncate">{player.name || 'Unknown Player'}</p>
             <div className="text-sm text-text-secondary flex items-center gap-3 mt-1">
-              <CivFlag civilization={player.civilization} className="h-4 w-auto" />
+              <CivFlag civilization={civilizationName} className="h-4 w-auto" />
               {playerDetails?.country && (
                 <ReactCountryFlag 
                   countryCode={playerDetails.country} 
