@@ -27,27 +27,6 @@ export const CIVILIZATION_NAMES: Record<string, string> = {
 };
 
 // Civilization Flag Mapping (to asset files)
-export const CIVILIZATION_FLAG_MAP: Record<string, string> = {
-  english: 'en',
-  french: 'fr',
-  holy_roman_empire: 'hr',
-  chinese: 'ch',
-  delhi_sultanate: 'de',
-  mongols: 'mo',
-  rus: 'ru',
-  abbasid_dynasty: 'ab',
-  malians: 'ma',
-  ottomans: 'ot',
-  byzantines: 'by',
-  japanese: 'ja',
-  jeanne_darc: 'je',
-  ayyubids: 'ay',
-  zhu_xis_legacy: 'zx',
-  order_of_the_dragon: 'od',
-  knights_templar: 'kt',
-  house_of_lancaster: 'hl'
-};
-
 // Civilization Colors (for CSS classes)
 export const CIVILIZATION_COLORS: Record<string, string> = {
   english: '#DC2626', // red-600
