@@ -93,6 +93,7 @@ export function PlayerCard({ player, gameMode, isOpponent }: PlayerCardProps) {
   const soloMmrMode = playerDetails?.modes?.rm_1v1_elo;
   const isTeamGame = gameMode.includes('team') || ['2v2', '3v3', '4v4'].some(v => gameMode.includes(v));
   const civilizationName = CIVILIZATION_NAMES[player.civilization] || player.civilization;
+  console.log('PlayerCard Civ Debug:', { apiValue: player.civilization, mappedName: civilizationName });
 
   const cardContent = (
     <div className={clsx(
