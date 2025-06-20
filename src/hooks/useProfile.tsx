@@ -5,7 +5,7 @@ import { extractProfileId, getPlayer } from '../services/aoe4worldApi';
 import { Player } from '../types';
 
 interface ProfileState {
-  profileId: number | null;
+  profileId: number | string | null;
   profileUrl: string | null;
   player: Player | null;
 }
@@ -52,6 +52,7 @@ export function useProfile() {
       };
 
       // Save to cookie
+      console.log('Saving profile data to cookie:', profileData);
       Cookies.set(COOKIE_NAME, JSON.stringify(profileData), { 
         expires: COOKIE_EXPIRY_DAYS 
       });
