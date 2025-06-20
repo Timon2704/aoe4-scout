@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
+// Use import.meta.glob for robust dynamic imports in Vite.
+// This creates a map of all possible flag images at build time.
+const flagImages = import.meta.glob('/src/assets/flags/*.png');
+
 interface CivFlagProps {
   civilization: string;
   className?: string;
@@ -12,13 +16,21 @@ const CivFlag: React.FC<CivFlagProps> = ({ civilization, className }) => {
     if (!civilization) return;
 
     const formattedCiv = civilization.toLowerCase().replace(/ /g, '_');
-    import(`../assets/flags/${formattedCiv}.png`)
-      .then(module => setFlagUrl(module.default))
-      .catch(err => console.error(`Failed to load flag for ${civilization}:`, err));
+    const imagePath = `/src/assets/flags/${formattedCiv}.png`;
+
+    if (flagImages[imagePath]) {
+      flagImages[imagePath]()
+        .then((module: any) => setFlagUrl(module.default))
+        .catch((err: any) => console.error(`Failed to load flag for ${civilization}:`, err));
+    } else {
+      console.error(`Flag not found for ${civilization} at path ${imagePath}`);
+      setFlagUrl('');
+    }
   }, [civilization]);
 
   if (!flagUrl) {
-    return <div className={className} style={{ width: '24px', height: '16px', backgroundColor: '#333' }} />; // Placeholder
+    // Return a placeholder to maintain layout
+    return <div className={className} style={{ display: 'inline-block', width: '24px', height: '16px' }} />;
   }
 
   return <img src={flagUrl} alt={civilization} className={className} />;
