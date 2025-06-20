@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-bg-dark text-text-primary font-sans antialiased;
+  }
+}
+
+@layer components {
+  /* Scrollbar styling */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.border-dark') transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: theme('colors.border-dark');
+    border-radius: 3px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: theme('colors.text-secondary');
+  }
+
+  /* Civilization flags using CSS gradients */
+  .civ-flag {
+    @apply w-6 h-4 rounded-sm bg-gradient-to-r shadow-sm;
+  }
+
+  .civ-english { @apply bg-gradient-to-r from-red-600 to-white; }
+  .civ-french { @apply bg-gradient-to-r from-blue-600 via-white to-red-600; }
+  .civ-holy_roman_empire { @apply bg-gradient-to-r from-black via-red-600 to-yellow-400; }
+  .civ-chinese { @apply bg-gradient-to-r from-red-500 to-yellow-400; }
+  .civ-delhi_sultanate { @apply bg-gradient-to-r from-green-600 to-white; }
+  .civ-mongols { @apply bg-gradient-to-r from-blue-500 to-red-500; }
+  .civ-rus { @apply bg-gradient-to-r from-white via-blue-600 to-red-600; }
+  .civ-abbasid_dynasty { @apply bg-gradient-to-r from-black to-green-500; }
+  .civ-malians { @apply bg-gradient-to-r from-red-600 via-yellow-400 to-green-600; }
+  .civ-ottomans { @apply bg-gradient-to-r from-red-600 to-white; }
+  .civ-byzantines { @apply bg-gradient-to-r from-purple-600 to-yellow-400; }
+  .civ-japanese { @apply bg-gradient-to-r from-white to-red-600; }
+  .civ-jeanne_darc { @apply bg-gradient-to-r from-blue-500 via-white to-blue-500; }
+  .civ-ayyubids { @apply bg-gradient-to-r from-yellow-400 to-black; }
+  .civ-zhu_xis_legacy { @apply bg-gradient-to-r from-red-500 via-yellow-400 to-red-500; }
+  .civ-order_of_the_dragon { @apply bg-gradient-to-r from-red-600 to-black; }
+
+  /* Particle effect */
+  .particle {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.3;
+    animation: float 20s infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) translateX(0) scale(1);
+      opacity: 0.3;
+    }
+    25% {
+      transform: translateY(-100px) translateX(50px) scale(1.1);
+      opacity: 0.5;
+    }
+    50% {
+      transform: translateY(-200px) translateX(-50px) scale(0.9);
+      opacity: 0.3;
+    }
+    75% {
+      transform: translateY(-100px) translateX(30px) scale(1.05);
+      opacity: 0.4;
+    }
+  }
+
+  /* Card hover effects */
+  .card-hover {
+    @apply transition-all duration-200 hover:scale-[1.02] hover:shadow-lg;
+  }
+
+  /* Pulse animation for live indicator */
+  .live-pulse {
+    @apply animate-pulse bg-green-500;
+  }
+}
