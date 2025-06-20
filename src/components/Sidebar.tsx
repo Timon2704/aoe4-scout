@@ -117,6 +117,15 @@ export function Sidebar({ isPolling, onRefresh, currentGame }: SidebarProps) {
           </div>
         </div>
       )}
+
+      <div className="mt-auto text-center text-xs text-text-secondary pt-4">
+        <p>
+          Data provided by{' '}
+          <a href="https://aoe4world.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
+            aoe4world.com
+          </a>
+        </p>
+      </div>
     </aside>
   );
 }
