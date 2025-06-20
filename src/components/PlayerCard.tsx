@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import { TeamPlayer, Mode } from '../types';
-import { CIVILIZATION_FLAG_MAP } from '../utils/constants';
+import CivFlag from './CivFlag';
 import { FaUser, FaTwitch, FaYoutube, FaTwitter } from 'react-icons/fa';
 import ReactCountryFlag from 'react-country-flag';
 import RankBadge from './RankBadge';
@@ -109,11 +109,7 @@ export function PlayerCard({ player, gameMode, isOpponent }: PlayerCardProps) {
           <div className="flex-1 min-w-0">
             <p className="font-bold text-lg truncate">{player.name || 'Unknown Player'}</p>
             <div className="text-sm text-text-secondary flex items-center gap-3 mt-1">
-              <img 
-                src={`/src/assets/flags/${CIVILIZATION_FLAG_MAP[player.civilization]}.png`}
-                alt={player.civilization}
-                className="h-4 w-auto"
-              />
+              <CivFlag civilization={player.civilization} className="h-4 w-auto" />
               {playerDetails?.country && (
                 <ReactCountryFlag 
                   countryCode={playerDetails.country} 
