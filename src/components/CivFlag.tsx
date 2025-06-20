@@ -1,4 +1,5 @@
 import React from 'react';
+import { CIVILIZATION_FLAG_MAP } from '../utils/constants';
 
 interface CivFlagProps {
   civilization: string;
@@ -10,8 +11,13 @@ const CivFlag: React.FC<CivFlagProps> = ({ civilization, className }) => {
     return <div className={className} style={{ display: 'inline-block', width: '24px', height: '16px' }} />;
   }
 
-  const formattedCiv = civilization.toLowerCase().replace(/ /g, '_');
-  const flagUrl = `/flags/${formattedCiv}.png`;
+  const flagCode = CIVILIZATION_FLAG_MAP[civilization];
+  if (!flagCode) {
+    console.warn(`No flag found for civilization: ${civilization}`);
+    return <div className={className} style={{ display: 'inline-block', width: '24px', height: '16px' }} />;
+  }
+
+  const flagUrl = `/flags/${flagCode}.png`;
 
   return <img src={flagUrl} alt={civilization} className={className} />;
 };

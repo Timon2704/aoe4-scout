@@ -26,6 +26,28 @@ export const CIVILIZATION_NAMES: Record<string, string> = {
   house_of_lancaster: 'House of Lancaster'
 };
 
+export const CIVILIZATION_FLAG_MAP: Record<string, string> = {
+  'English': 'en',
+  'French': 'fr',
+  'Holy Roman Empire': 'hr',
+  'Chinese': 'ch',
+  'Delhi Sultanate': 'de',
+  'Mongols': 'mo',
+  'Rus': 'ru',
+  'Abbasid Dynasty': 'ab',
+  'Malians': 'ma',
+  'Ottomans': 'ot',
+  'Byzantines': 'by',
+  'Japanese': 'ja',
+  'Jeanne d\'Arc': 'je',
+  'Ayyubids': 'ay',
+  'Zhu Xi\'s Legacy': 'zx',
+  'Order of the Dragon': 'od',
+  // These are not official civs with flags yet, but placeholders
+  'Knights Templar': 'kt',
+  'House of Lancaster': 'hl'
+};
+
 // Civilization Flag Mapping (to asset files)
 // Civilization Colors (for CSS classes)
 export const CIVILIZATION_COLORS: Record<string, string> = {
